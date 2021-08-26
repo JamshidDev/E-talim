@@ -1,0 +1,9 @@
+.quiz-setting{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.quiz-setting>TextField {
+    width: 300px;
+    margin: 0px auto;
+}
