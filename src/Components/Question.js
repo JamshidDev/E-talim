@@ -32,7 +32,7 @@ const Question = ({
   
     const handleNext = () => {
       if (currQues > 8) {
-        history.push("/result");
+        history.push("/resultTest");
       } else if (selected) {
         setCurrQues(currQues + 1);
         setSelected();
@@ -58,7 +58,6 @@ const Question = ({
                   className={`singleOption  ${selected && handleSelect(i)}`}
                   key={i}
                   onClick={() => handleCheck(i)}
-                 
                 >
                   {i}
                 </button>
@@ -70,7 +69,7 @@ const Question = ({
               color="secondary"
               size="large"
               style={{ width: 185 }}
-              href="/"
+              href="/quiz"
               onClick={() => handleQuit()}
             >
               Quit

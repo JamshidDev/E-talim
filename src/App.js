@@ -14,6 +14,7 @@ import Login from './Components/Login';
 import Singup from './Components/Singup';
 import Quiz from './Components/Quiz';
 import Result from './Components/Result';
+import ResultTest from './Components/ResultTest';
 
 function App() {
 
@@ -58,6 +59,12 @@ function App() {
         </Route>
         <Route path="/login" exact>
           <Login />
+        </Route>
+        <Route path="/resultTest" exact>
+          <ResultTest
+          name={name} 
+          score={score}
+          />
         </Route>
         </Switch>
        
