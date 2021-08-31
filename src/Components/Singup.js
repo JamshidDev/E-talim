@@ -21,7 +21,7 @@ function Singup() {
                         <p className="log-info">Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
 
                         <div className="input-container mobile-version">
-                            <button className="mobile-btn-sing" >Ro'yhatdan o'tish</button>
+                            <button className="_mobile-btn-sing" >Ro'yhatdan o'tish</button>
                             <button className="mobile-btn-log">Kirish</button>
                         </div>
 

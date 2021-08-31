@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { TextField, MenuItem, Button } from '@material-ui/core';
 import categories from "./Data/Category";
 import  ErrorMessage from "./ErrorMessage";
+import "../css/Quiz.css";
 
 function Quiz({ name, setName, fetchQuestions }){
 
@@ -24,12 +25,24 @@ function Quiz({ name, setName, fetchQuestions }){
     history.push("/result");
   }
  }
+
+
+
+
+
     return(
         <>
-        <h1>Quiz settings</h1>
-        <div className="quiz-setting">
-          {error && <ErrorMessage> xato</ErrorMessage>}
-        <TextField
+        <div className="_quiz-container">
+          <nav className="_top-navbar">
+            <span className="_logo-name">
+              E-talim
+            </span>
+          </nav>
+          <h1>Quiz settings</h1>
+          <div className="_grid-container">
+            <div className="_grid-item1">
+
+            <TextField
          style={{marginBottom:25}}
          id="outlined-basic" 
          label="Ismingiz"
@@ -83,6 +96,20 @@ function Quiz({ name, setName, fetchQuestions }){
             >
               Boshlash
             </Button>
+
+
+
+            </div>
+            <div className="_grid-item1">
+              
+              </div>
+
+          </div>
+        <h1>Quiz settings</h1>
+        <div className="quiz-setting">
+          {error && <ErrorMessage> xato</ErrorMessage>}
+       
+           </div>
 
            </div>
               </>

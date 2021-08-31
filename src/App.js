@@ -15,6 +15,7 @@ import Singup from './Components/Singup';
 import Quiz from './Components/Quiz';
 import Result from './Components/Result';
 import ResultTest from './Components/ResultTest';
+import QuizSetting from './Components/Pages/QuizSetting';
 
 function App() {
 
@@ -23,7 +24,6 @@ function App() {
   const [score, setScore] = useState(0);
 
   const fetchQuestions = async (category = "", difficult = "") => {
-    console.log(category+difficult);
     const { data } = await axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficult}&type=multiple`
     );
 
@@ -56,6 +56,9 @@ function App() {
         </Route>
         <Route path="/singup" exact>
           <Singup />
+        </Route>
+        <Route path="/" exact>
+          <QuizSetting />
         </Route>
         <Route path="/login" exact>
           <Login />
