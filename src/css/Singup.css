@@ -43,7 +43,7 @@ body{
     font-size: 24px;
 }
 
-.log-title, .input-container, .btn-login, .repassword, .ws-mobile-logo, .chamge-language{
+._log-title, ._input-container, ._btn-login, ._repassword, ._ws-mobile-logo, ._chamge-language{
     min-width: 260px;
     max-width: 260px;
     max-height: 35px;
@@ -57,7 +57,7 @@ body{
     text-align: center;
     display: none;
 }
-.log-info{
+._log-info{
     min-width: 260px;
     max-width: 260px;
     text-align:left;

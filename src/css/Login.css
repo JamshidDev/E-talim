@@ -44,8 +44,8 @@ body{
 }
 
 .log-title, .input-container, .btn-login, .repassword, .ws-mobile-logo, .chamge-language{
-    min-width: 260px;
-    max-width: 260px;
+    min-width: 300px;
+    max-width: 300px;
     max-height: 35px;
     min-height: 35px;
     margin: 0px auto;
@@ -58,8 +58,8 @@ body{
     display: none;
 }
 .log-info{
-    min-width: 260px;
-    max-width: 260px;
+    min-width: 300px;
+    max-width: 300px;
     text-align:left;
     font-size: 13px;
     color: #768192;
