@@ -10,7 +10,7 @@ body{
 *{
     font-family: 'Poppins', sans-serif;
 }
-.Login-container{
+.login_container{
     background-color: #E4E4E4;
     width: 100%;
     height: 100vh;
@@ -18,13 +18,13 @@ body{
     justify-content: center;
     align-items: center;
 }
-.login-box-center{
+.login_box_center{
     width: 650px;
     height: auto;
     background-color:  #FFFFFF;
     display: flex;
 }
-.login-form{
+.login_form{
     min-width: 400px;
     display: flex;
     flex-direction: column;
@@ -33,17 +33,17 @@ body{
 
     
 
-.login-sign-up{
+.login_sign_up{
     min-width: 250px;
 }
-.log-title{
+.log_title{
     text-transform: uppercase;
     font-weight:bolder;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
 }
 
-.log-title, .input-container, .btn-login, .repassword, .ws-mobile-logo, .chamge-language{
+.log_title, .input_container, .btn_login, .repassword, .ws_mobile_logo, .chamge_language{
     min-width: 300px;
     max-width: 300px;
     max-height: 35px;
@@ -51,13 +51,13 @@ body{
     margin: 0px auto;
 }
 /* Logo for mobile version */
-.ws-mobile-logo{
+.ws_mobile_logo{
     font-size: 24px;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
     display: none;
 }
-.log-info{
+.log_info{
     min-width: 300px;
     max-width: 300px;
     text-align:left;
@@ -65,17 +65,17 @@ body{
     color: #768192;
     margin: 10px auto;
 }
-.input-container, .btn-login{
+.input_container, .btn_login{
     border: 1px solid #E4E4E4;
     border-radius: 4px;
     overflow: hidden;
     display: flex;
     margin: 10px auto;
 }
-.mobile-version{
+.mobile_version{
     display: none;
 }
-.input-label{
+.input_label{
     width: 60px;
     height: 35px;
     background-color: #E4E4E4;
@@ -84,17 +84,17 @@ body{
     align-items: center;
     
 }
-.input-data> input{
+.input_data> input{
     width: 200px;
     height: 35px;
     border: none;
     padding: 2px 6px;
     box-sizing: border-box;
 }
-.input-data> input:focus{
+.input_data> input:focus{
     outline: none;
 }
-.btn-login{
+.btn_login{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,89 +102,117 @@ body{
     color: #FFFFFF;
 }
 .repassword{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     font-size: 12px;
     color: #E75D31;
     min-height: auto;
+
 }
-.lock-icon{
+.lock_icon{
     font-size: 30px;
     color:#768192 ;
 }
-.chamge-language{
+.change_language{
     display: flex;
     justify-content: flex-end;
 }
-.chamge-language> img{
+.change_language> img{
     width: 20px;
     margin: 0px 4px;
 }
 
 /* sing up style css */
-.login-sign-up{
+.login_sign_up{
     min-width: 250px;
     display: flex;
     flex-direction: column;
     background-color: #3399FF;
-    padding: 75px 0px;
+    padding: 54px 0px;
 }
 
-.ws-logo, .ws-info, .btn-singup{
+.ws_logo, .ws_info, .btn_singup{
     min-width: 200px;
     max-width: 200px;
     margin: 0px auto;
     color: #FFFFFF;
 }
-.ws-logo{
+.ws_logo{
     margin: 50px auto;
     font-size: 24px;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
 }
-.ws-info{
+.ws_info{
     text-transform: uppercase;
     margin-bottom: 20px;
     font-size: 14px;
 }
-.btn-singup{
+.btn_singup{
     max-height: 35px;
     min-height: 35px;
     border: none;
     background-color: #F9B115;
     font-family: 'Poppins', sans-serif;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 
 
-.mobile-btn-log{
+.mobile_btn_log{
     min-width: 100px;
     height: 100%;
     background-color: #3399FF;
     color: #FFFFFF;
     border: none;
+    
 }
-.mobile-btn-sing{
+.mobile_btn_sing{
     min-width: 160px;
     background-color: #FFFFFF;
+    color: #768192;
     height: 100%; 
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
 
 }
 
 /* Css style in mobile version */
 @media screen and (max-width: 760px) {
-    .login-sign-up{
+    .login_sign_up{
         display: none;
     }
-    .login-box-center{
+    .login_box_center{
         width: 400px;
     }
-    .ws-mobile-logo, .mobile-version{
+    .mobile_version{
+        display: block;
+        min-width: 300px;
+        max-width: 300px;
+        max-height: 35px;
+        min-height: 35px;
+        margin: 0px auto;
+        border: 1px solid #E4E4E4;
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        margin: 10px auto;
+    }
+    .ws_mobile_logo{
         display: block;
     }
   }
   @media screen and (max-width: 460px) {
-    .login-box-center{
+    .login_box_center{
         width: 100%;
         height: 100vh;
         background-color:  #FFFFFF;

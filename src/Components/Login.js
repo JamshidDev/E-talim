@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import "../css/Login.css";
+import classes from '../css/login.module.css';
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import LockIcon from '@material-ui/icons/Lock';
+import {Link} from "react-router-dom";
+
 
 
 function Login() {
@@ -60,53 +62,51 @@ function Login() {
        }
        
     }
-
-
     return (
         <>
-            <div className="Login-container">
-                <div className="login-box-center">
+            <div className={classes.login_container}>
+                <div className={classes.login_box_center}>
 
-                    <form className="login-form" onSubmit={submitData}>
-                        <h3 className="ws-mobile-logo">E-TALIM</h3>
-                        <h3 className="log-title">Tizimga Kirish</h3>
-                        <p className="log-info">Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
+                    <form className={classes.login_form}>
+                        <h3 className={classes.ws_mobile_logo}>E-TALIM</h3>
+                        <h3 className={classes.log_title}>Tizimga Kirish</h3>
+                        <p className={classes.log_info}>Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
 
-                        <div className="input-container mobile-version">
-                            <button className="mobile-btn-log">Kirish</button>
-                            <button className="mobile-btn-sing" >Ro'yhatdan o'tish</button>
+                        <div className={classes.input_container, classes.mobile_version}>
+                            <button className={classes.mobile_btn_log}>Kirish</button>
+                            <Link className={classes.mobile_btn_sing} to="/singup">Ro'yhatdan o'tish</Link>
                         </div>
 
-                        <div className="input-container">
-                            <div className="input-label">
+                        <div className={classes.input_container}>
+                            <div className={classes.input_label}>
                                 <span>+998</span>
                             </div>
-                            <div className="input-data">
+                            <div className={classes.input_data}>
                                 <input type="tel" value={TelNumber} placeholder="Telefon" onChange={(e)=>{setTelNumber(e.target.value)}} ></input>
                             </div>
                         </div>
 
-                        <div className="input-container">
-                            <div className="input-label">
-                                <LockIcon className="lock-icon" />
+                        <div className={classes.input_container}>
+                            <div className={classes.input_label}>
+                                <LockIcon className={classes.lock_icon} />
                             </div>
-                            <div className="input-data">
+                            <div className={classes.input_data}>
                                 <input type="password" value={Password} placeholder="Parol" onChange={(e)=>{setPassword(e.target.value)}}></input>
                             </div>
                         </div>
 
-                        <div className="input-container">
-                            <div className="input-label">
+                        <div className={classes.input_container}>
+                            <div className={classes.input_label}>
                                 <span>{RandomNumberOne+" + "+RandomNumberTwo}</span>
                             </div>
-                            <div className="input-data">
+                            <div className={classes.input_data}>
                                 <input type="text" placeholder="Natija" onChange={(e) => { setRobot(e.target.value) }}></input>
                             </div>
                         </div>
 
-                        <button className="btn-login" type="submit">KIRISH</button>
-                        <p className="repassword" >Parolni tiklash</p>
-                        <div className="chamge-language">
+                        <button className={classes.btn_login} onClick={submitData}>KIRISH</button>
+                        <Link className={classes.repassword} to="/repassword">Parolni tiklash</Link>
+                        <div className={classes.change_language}>
                             <img src={Uzbek} alt="Uzbek flags" />
                             <img src={English} alt="British flags" />
                         </div>
@@ -115,14 +115,13 @@ function Login() {
 
                     </form>
 
-                    <div className="login-sign-up">
-                        <h3 className="ws-logo">E-TALIM</h3>
-                        <p className="ws-info">Bu tizim orqali siz o'z bilim darajangizni va
+                    <div className={classes.login_sign_up}>
+                        <h3 className={classes.ws_logo}>E-TALIM</h3>
+                        <p className={classes.ws_info}>Bu tizim orqali siz o'z bilim darajangizni va
                             tendoshlaringiz bilimin tekshirib ko'rishga imkon
                             beradi.
                         </p>
-                        <button className="btn-singup">Ro'yhatdan o'tish</button>
-
+                        <Link className={classes.btn_singup} to="/singup">Ro'yhatdan o'tish</Link>
                     </div>
                 </div>
             </div>

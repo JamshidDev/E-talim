@@ -1,5 +1,5 @@
 import React from 'react';
-import "../css/NewPassword.css";
+import "../css/NewPassword.module.css";
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import LockIcon from '@material-ui/icons/Lock';

@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { TextField, MenuItem, Button } from '@material-ui/core';
 import categories from "./Data/Category";
 import  ErrorMessage from "./ErrorMessage";
-import "../css/Quiz.css";
+import "../css/Quiz.module.css";
 
 function Quiz({ name, setName, fetchQuestions }){
 

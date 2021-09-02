@@ -1,5 +1,5 @@
 import React from 'react';
-import "../css/Repassword.css";
+import "../css/Repassword.module.css";
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 

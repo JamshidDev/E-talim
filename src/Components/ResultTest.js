@@ -1,12 +1,12 @@
-import { func } from "prop-types";
 import React from "react";
-import Result from "./Result";
+import style from "../css/resultTest.module.css";
+
 
 function ResultTest({name, score}){
 
     return(
         <>
-        <p>This is Result test component</p>
+        <p className={style.red_ok}>This is Result test component</p>
         Name: {name}
         Score: {score}
 

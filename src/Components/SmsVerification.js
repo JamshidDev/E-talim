@@ -1,5 +1,5 @@
 import React from 'react';
-import "../css/SmsVerification.css";
+import "../css/SmsVerification.module.css";
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import EmailIcon from '@material-ui/icons/Email';

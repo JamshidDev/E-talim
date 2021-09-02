@@ -8,9 +8,9 @@ import {
   BrowserRouter
 } from "react-router-dom";
 import Login from './Components/Login';
-// import Repassword from "./Components/Repassword";
-// import SmsVerification from './Components/SmsVerification';
-// import NewPassword from './Components/NewPassword';
+import Repassword from "./Components/Repassword";
+import SmsVerification from './Components/SmsVerification';
+import NewPassword from './Components/NewPassword';
 import Singup from './Components/Singup';
 import Quiz from './Components/Quiz';
 import Result from './Components/Result';
@@ -68,6 +68,15 @@ function App() {
           name={name} 
           score={score}
           />
+        </Route>
+        <Route path="/repassword" exact>
+          <Repassword />
+        </Route>
+        <Route path="/smsverification" exact>
+          <SmsVerification />
+        </Route>
+        <Route path="/newpassword" exact>
+          <NewPassword />
         </Route>
         </Switch>
        
