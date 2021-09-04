@@ -33,13 +33,13 @@ function SmsVerification(){
 
                     </div> 
 
-                    <div className="login-sign-up">
-                                <h3 className="ws-logo">E-TALIM</h3>
-                                <p className="ws-info">Bu tizim orqali siz o'z bilim darajangizni va 
+                    <div className={smsVerification.login_sign_up}>
+                                <h3 className={smsVerification.ws_logo}>E-TALIM</h3>
+                                <p className={smsVerification.ws_info}>Bu tizim orqali siz o'z bilim darajangizni va 
                                     tendoshlaringiz bilimin tekshirib ko'rishga imkon
                                  beradi.
                                 </p>
-                                <button className="btn-singup">Ro'yhatdan o'tish</button>
+                                <button className={smsVerification.btn_singup}>Ro'yhatdan o'tish</button>
 
                     </div>
                 </div>
