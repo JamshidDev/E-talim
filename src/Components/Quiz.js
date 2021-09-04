@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router";
-import { TextField, MenuItem, Button } from '@material-ui/core';
+import { TextField, MenuItem, Button, makeStyles } from '@material-ui/core';
 import categories from "./Data/Category";
 import  ErrorMessage from "./ErrorMessage";
-import "../css/Quiz.module.css";
+import quizStyle from "../css/Quiz.module.css";
+import styles from '../css/quizmodule.css';
+
+const useStyle = makeStyles({
+
+ input:{
+  width:300,
+  fontSize:60,
+ },
+})
 
 function Quiz({ name, setName, fetchQuestions }){
+  const classes = useStyle()
 
  const [category, setCategory]=useState("");
  const [difficult, setDifficult]=useState("");
@@ -32,17 +42,18 @@ function Quiz({ name, setName, fetchQuestions }){
 
     return(
         <>
-        <div className="_quiz-container">
-          <nav className="_top-navbar">
-            <span className="_logo-name">
+        <div className={quizStyle.quiz_container}>
+          <nav className={quizStyle.top_navbar}>
+            <span className={quizStyle.logo_name}>
               E-talim
             </span>
           </nav>
           <h1>Quiz settings</h1>
-          <div className="_grid-container">
-            <div className="_grid-item1">
+          <div className={quizStyle.grid_container}>
+            <div className={quizStyle.grid_item1}>
 
             <TextField
+            className={classes.input}
          style={{marginBottom:25}}
          id="outlined-basic" 
          label="Ismingiz"
@@ -92,21 +103,21 @@ function Quiz({ name, setName, fetchQuestions }){
             variant="contained"
             color="primary"
             size="large"
-            onClick={handleSubmit}
-            >
+            onClick={handleSubmit}>
               Boshlash
             </Button>
 
 
 
             </div>
-            <div className="_grid-item1">
-              
-              </div>
+            <div className={quizStyle.grid_item1}>
+            <Button>Default</Button>
+      <Button className={styles.button}>Customized</Button>
+           </div>
 
           </div>
         <h1>Quiz settings</h1>
-        <div className="quiz-setting">
+        <div className={quizStyle.quiz_setting}>
           {error && <ErrorMessage> xato</ErrorMessage>}
        
            </div>

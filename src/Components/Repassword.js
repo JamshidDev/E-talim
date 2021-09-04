@@ -1,43 +1,44 @@
 import React from 'react';
-import "../css/Repassword.module.css";
+import RepasswordStyle from "../css/Repassword.module.css";
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
+import {Link} from "react-router-dom";
 
 function Repassword(){
     return(
         <>
-             <div className="Login-container">
-                <div className="login-box-center">
+             <div className={RepasswordStyle.Login_container}>
+                <div className={RepasswordStyle.login_box_center}>
 
-                    <div className="login-form">
-                        <h3 className="ws-mobile-logo">E-TALIM</h3>
-                        <h3 className="log-title">Parolni tiklash</h3>
-                        <p className="log-info">Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
-                        <div className="input-container">
-                            <div className="input-label">
+                    <div className={RepasswordStyle.login_form}>
+                        <h3 className={RepasswordStyle.ws_mobile_logo}>E-TALIM</h3>
+                        <h3 className={RepasswordStyle.log_title}>Parolni tiklash</h3>
+                        <p className={RepasswordStyle.log_info}>Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
+                        <div className={RepasswordStyle.input_container}>
+                            <div className={RepasswordStyle.input_label}>
                                 <span>+998</span>
                             </div>
-                            <div className="input-data">
+                            <div className={RepasswordStyle.input_data}>
                                 <input type="tel" placeholder="Telefon"></input>
                             </div>
                         </div>
 
-                        <div className="input-container">
-                            <div className="input-label">
+                        <div className={RepasswordStyle.input_container}>
+                            <div className={RepasswordStyle.input_label}>
                                 <span>2 + 3</span>
                             </div>
-                            <div className="input-data">
+                            <div className={RepasswordStyle.input_data}>
                                 <input type="Number" placeholder="Natijani kiriting"></input>
                             </div>
                         </div>
 
-                        <div className="input-container mobile-version">
-                           <button className="mobile-btn-log">Parolni tiklash </button>
-                           <button className="mobile-btn-sing" >Kirish</button>
+                        <div className={RepasswordStyle.input_container}>
+                           <button className={RepasswordStyle.mobile_btn_log}>Parolni tiklash </button>
+                           <Link className={RepasswordStyle.mobile_btn_sing} to="/login">Kirish</Link>
                         </div>
 
                         
-                        <div className="chamge-language">
+                        <div className={RepasswordStyle.chamge_language}>
                             <img src={Uzbek} />
                             <img src={English} />
                         </div>
@@ -46,13 +47,13 @@ function Repassword(){
 
                     </div> 
 
-                    <div className="login-sign-up">
-                                <h3 className="ws-logo">E-TALIM</h3>
-                                <p className="ws-info">Bu tizim orqali siz o'z bilim darajangizni va 
+                    <div className={RepasswordStyle.login_sign_up}>
+                                <h3 className={RepasswordStyle.ws_logo}>E-TALIM</h3>
+                                <p className={RepasswordStyle.ws_info}>Bu tizim orqali siz o'z bilim darajangizni va 
                                     tendoshlaringiz bilimin tekshirib ko'rishga imkon
                                  beradi.
                                 </p>
-                                <button className="btn-singup">Ro'yhatdan o'tish</button>
+                                <Link className={RepasswordStyle.btn_singup} to="/singup">Ro'yhatdan o'tish</Link>
 
                     </div>
                 </div>

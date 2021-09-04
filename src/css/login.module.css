@@ -117,6 +117,9 @@ body{
 .change_language{
     display: flex;
     justify-content: flex-end;
+    min-width: 300px;
+    max-width: 300px;
+    margin: 0px auto;
 }
 .change_language> img{
     width: 20px;
