@@ -16,6 +16,7 @@ import Quiz from './Components/Quiz';
 import Result from './Components/Result';
 import ResultTest from './Components/ResultTest';
 import QuizSetting from './Components/Pages/QuizSetting';
+import BottomNavbar from './Components/BottomNavbar';
 
 function App() {
 
@@ -78,7 +79,11 @@ function App() {
         <Route path="/newpassword" exact>
           <NewPassword />
         </Route>
+        <Route path="/bottomNavbar" exact>
+          <BottomNavbar />
+        </Route>
         </Switch>
+
        
 
 

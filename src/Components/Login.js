@@ -47,7 +47,6 @@ function Login() {
 
     let submitData = e=> {
         e.preventDefault();
-        alert("Data send to server");
         const isValid = formValidation();
        let  body={Tell:TelNumber, pass:Password};
        let isRobot=RandomNumberOne+RandomNumberTwo===+Robot;

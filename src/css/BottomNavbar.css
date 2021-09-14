@@ -1,0 +1,15 @@
+.bottom_navbar_container{
+    width:100%;
+    max-height:50px;
+    min-height:50px;
+    border: 1px solid blue;
+    position:fixed;
+    bottom:0px;
+    overflow:hidden;
+}
+.box_icon{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 0px 50px;
+}
