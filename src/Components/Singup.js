@@ -4,7 +4,7 @@ import singupstyle from "../css/Singup.module.css";
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import LockIcon from '@material-ui/icons/Lock';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Singup() {
     const [RandomNumberOne, setRandomNumberOne] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
@@ -13,34 +13,30 @@ function Singup() {
     const [Password, setPassword] = useState("");
     const [RePassword, setRePassword] = useState("");
     const [Robot, setRobot] = useState(0);
-    let errorMsg =[];
+    const [errMsg,setErrMsg]=useState(false);
+    const [serverErr,setServerErr]=useState(false);
+    let history = useHistory();
+
 
 
     const formValidation = () => {
-        if (!isNaN(+TelNumber)) {
-            console.log("Number a");
-            return true
-        }
-        else {
-            errorMsg.push("Telefon raqamingiz noto'g'ri...");
-            console.log(errorMsg);
-            return false
-        }
-    }
+        if (!isNaN(+TelNumber) && TelNumber.length) return true
+        else {setErrMsg(true); return false}}
 
     let submitData = e => {
         e.preventDefault();
         const isValid = formValidation();
         let body = { Tell: TelNumber, pass: Password };
         let isRobot = RandomNumberOne + RandomNumberTwo === +Robot;
-        let isPassTrue =Password===RePassword;
-        if (isRobot && isValid && isPassTrue) {
-            console.log(body);
+        let isPassTrue =Password===RePassword && Password.length;
+        if (isRobot && isValid && isPassTrue) {console.log(body);
             axios.post("https://jsonplaceholder.typicode.com/posts", body)
-                .then((res) =>console.log(res))
-                .catch((err) =>console.log(err));
+                .then((res) => history.push("/login") )
+                .catch((err) =>{console.log(err); setServerErr(true)});
         }
-        else {console.log("Iltimos formani to'g'ri to'ldiring");}
+        else {
+            setErrMsg(true)
+            console.log("Iltimos formani to'g'ri to'ldiring");}
     }
 
 
@@ -54,21 +50,20 @@ function Singup() {
                         {/* <h3 className={singupstyle.ws_mobile_logo}>E-TALIM</h3> */}
                         <h3 className={singupstyle.log_title}>Ro'yhatdan o'tish</h3>
                         <p className={singupstyle.log_info}>Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
-                        {errorMsg && errorMsg.map((item)=>
-                            <Link className={singupstyle.repassword} to="/repassword">item</Link>
-                        )}
+                       
 
                         <div className={singupstyle.input_container, singupstyle.mobile_version}>
                             <button className={singupstyle.mobile_btn_sing} >Ro'yhatdan o'tish</button>
                             <Link className={singupstyle.mobile_btn_log} to="/login">Kirish</Link>
                         </div>
-
+                        {errMsg && <p className={singupstyle.repassword}>Iltimos malumotlaringizni to'g'riligini tekshiring... </p>}
+                        {serverErr && <p className={singupstyle.repassword}>Bu telefon raqam allaqachon ro'yhatdan o'tgan</p>}
                         <div className={singupstyle.input_container}>
                             <div className={singupstyle.input_label}>
                                 <span>+998</span>
                             </div>
                             <div className={singupstyle.input_data}>
-                                <input type="_tel" placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }}></input>
+                                <input type="_tel"placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }}></input>
                             </div>
                         </div>
 
@@ -95,7 +90,7 @@ function Singup() {
                                 <span>{RandomNumberOne} + {RandomNumberTwo}</span>
                             </div>
                             <div className={singupstyle.input_data}>
-                                <input type="Number" placeholder="Natija" onChange={(e) => { setRobot(e.target.value) }}></input>
+                                <input type="text" placeholder="Natija" onChange={(e) => { setRobot(e.target.value) }}></input>
                             </div>
                         </div>
 
