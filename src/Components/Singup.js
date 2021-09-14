@@ -20,8 +20,9 @@ function Singup() {
 
 
     const formValidation = () => {
-        if (!isNaN(+TelNumber) && TelNumber.length) return true
+        if (!isNaN(+TelNumber) && TelNumber.length) return true;
         else {setErrMsg(true); return false}}
+
 
     let submitData = e => {
         e.preventDefault();
@@ -34,9 +35,7 @@ function Singup() {
                 .then((res) => history.push("/login") )
                 .catch((err) =>{console.log(err); setServerErr(true)});
         }
-        else {
-            setErrMsg(true)
-            console.log("Iltimos formani to'g'ri to'ldiring");}
+        else {setErrMsg(true); console.log("Iltimos formani to'g'ri to'ldiring");}
     }
 
 

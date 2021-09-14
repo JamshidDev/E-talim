@@ -10,18 +10,14 @@ import {Link} from "react-router-dom";
 
 function Login() {
 
-
     const [TelNumber, setTelNumber] = useState("");
     const [Password, setPassword] = useState("");
     const [Robot, setRobot] = useState(0);
-    // const [TelNumberError, setTeNumberError] = useState({});
-    // const [PasswordError, setPasswordError] = useState({});
+    const [errorMsg, setErrorMsg]= useState(false);
+    const [serverErr, setServerErr]=useState(false);
     const [RandomNumberOne,setRandomNumberOne]=useState(Math.floor(Math.random() * (9 - 1 + 1)) +1);
     const [RandomNumberTwo,setRandomNumberTwo]=useState(Math.floor(Math.random() * (9 - 1 + 1)) +1);
     
-
-     
-
     // useEffect(()=>{
     //     axios.get("https://jsonplaceholder.typicode.com/posts/1")
     //     .then((res)=>{console.log(res);})
@@ -29,13 +25,11 @@ function Login() {
     // },[])
 
     const formValidation = () => {
-        if(!isNaN(+TelNumber)){
+        if(!isNaN(+TelNumber) && TelNumber.length){
             console.log("Number a");
             return true
         }
-        else{
-            console.log("Not a Number");
-            return false
+        else{setErrorMsg(true); return false
         }
 
         console.log(TelNumber);
@@ -48,16 +42,18 @@ function Login() {
     let submitData = e=> {
         e.preventDefault();
         const isValid = formValidation();
+        
        let  body={Tell:TelNumber, pass:Password};
+       let isPassHave =Boolean(Password.length);
        let isRobot=RandomNumberOne+RandomNumberTwo===+Robot;
-       if(isRobot){
+       if(isRobot && isValid && isPassHave){
+        setErrorMsg(false)
         axios.post("https://jsonplaceholder.typicode.com/posts",body)
         .then((res)=>{console.log(res);})
-        .catch((err)=>{console.log(err);}) 
+        .catch((err)=>{console.log(err); setServerErr(true)}) 
            console.log("ok");
        }
-       else{
-           console.log("bad");
+       else{setErrorMsg(true); console.log("bad");
        }
        
     }
@@ -67,7 +63,7 @@ function Login() {
                 <div className={classes.login_box_center}>
 
                     <form className={classes.login_form}>
-                        <h3 className={classes.ws_mobile_logo}>E-TALIM</h3>
+                        {/* <h3 className={classes.ws_mobile_logo}>E-TALIM</h3> */}
                         <h3 className={classes.log_title}>Tizimga Kirish</h3>
                         <p className={classes.log_info}>Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
 
@@ -76,6 +72,8 @@ function Login() {
                             <Link className={classes.mobile_btn_sing} to="/singup">Ro'yhatdan o'tish</Link>
                         </div>
 
+                        {errorMsg && <p className={classes.repassword}>Malumotlarni to'liq kiriting</p>}
+                        {serverErr && <p className={classes.repassword}>Parol yoki login noto'g'ri... </p>}
                         <div className={classes.input_container}>
                             <div className={classes.input_label}>
                                 <span>+998</span>
