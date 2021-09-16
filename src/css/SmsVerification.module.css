@@ -23,6 +23,8 @@ body{
     height: auto;
     background-color:  #FFFFFF;
     display: flex;
+    justify-content: center;
+    box-sizing: border-box;
 }
 .login_form{
     min-width: 400px;

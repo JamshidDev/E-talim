@@ -62,7 +62,7 @@ function SmsVerification(){
                 <div className={smsVerification.login_box_center}>
 
                     <div className={smsVerification.login_form}>
-                        <h3 className={smsVerification.ws_mobile_logo}>E-TALIM</h3>
+                        {/* <h3 className={smsVerification.ws_mobile_logo}>E-TALIM</h3> */}
                         <h3 className={smsVerification.log_title}>{minutes}:{seconds}</h3>
                         <p className={smsVerification.log_info}>Ro'yhatdan o'tish uchun ***6004 raqamiga SMS xabar yuborildi. Ushbu kodni kiriting.</p>
                         {errorMsg && <p className={smsVerification.repassword}>Sms ko'dingizni to'g'riligini tekshiring...</p>}
