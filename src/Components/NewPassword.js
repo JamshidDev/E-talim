@@ -6,6 +6,10 @@ import LockIcon from '@material-ui/icons/Lock';
 
 
 function NewPassword(){
+  
+
+
+
     return(
         <>
         <div className={NewPasswordStyle.Login_container}>
@@ -37,8 +41,8 @@ function NewPassword(){
 
                     <button className={NewPasswordStyle.btn_login}>Saqlash</button>
                     <div className={NewPasswordStyle.chamge_language}>
-                        <img src={Uzbek} />
-                        <img src={English} />
+                        <img src={Uzbek} alt="not fount flag of uzb"/>
+                        <img src={English} alt="not fount flag of eng"/>
                     </div>
 
 

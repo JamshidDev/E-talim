@@ -49,8 +49,7 @@ function Singup() {
                         {/* <h3 className={singupstyle.ws_mobile_logo}>E-TALIM</h3> */}
                         <h3 className={singupstyle.log_title}>Ro'yhatdan o'tish</h3>
                         <p className={singupstyle.log_info}>Hurmatli foydalanuvchi, tizimdan foydalanish uchun telefon raqamingizni kiriting</p>
-                       
-
+                    
                         <div className={singupstyle.input_container, singupstyle.mobile_version}>
                             <button className={singupstyle.mobile_btn_sing} >Ro'yhatdan o'tish</button>
                             <Link className={singupstyle.mobile_btn_log} to="/login">Kirish</Link>
@@ -65,7 +64,6 @@ function Singup() {
                                 <input type="_tel"placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }}></input>
                             </div>
                         </div>
-
                         <div className={singupstyle.input_container}>
                             <div className={singupstyle.input_label}>
                                 <LockIcon className={singupstyle.lock_icon} />
