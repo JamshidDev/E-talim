@@ -11,7 +11,7 @@ function Repassword() {
     const [TelNumber, setTelNumber] = useState("");
     const [Robot, setRobot] = useState(0);
     const [errorMsg, setErrorMsg] = useState(false);
-    const [serverErr, setServerErr] = useState(true);
+    const [serverErr, setServerErr] = useState(false);
 
     const [RandomNumberOne, setRandomNumberOne] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
     const [RandomNumberTwo, setRandomNumberTwo] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);

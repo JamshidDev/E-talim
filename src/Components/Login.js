@@ -4,7 +4,7 @@ import classes from '../css/login.module.css';
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import LockIcon from '@material-ui/icons/Lock';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -13,11 +13,11 @@ function Login() {
     const [TelNumber, setTelNumber] = useState("");
     const [Password, setPassword] = useState("");
     const [Robot, setRobot] = useState(0);
-    const [errorMsg, setErrorMsg]= useState(false);
-    const [serverErr, setServerErr]=useState(false);
-    const [RandomNumberOne,setRandomNumberOne]=useState(Math.floor(Math.random() * (9 - 1 + 1)) +1);
-    const [RandomNumberTwo,setRandomNumberTwo]=useState(Math.floor(Math.random() * (9 - 1 + 1)) +1);
-    
+    const [errorMsg, setErrorMsg] = useState(false);
+    const [serverErr, setServerErr] = useState(false);
+    const [RandomNumberOne, setRandomNumberOne] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
+    const [RandomNumberTwo, setRandomNumberTwo] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
+
     // useEffect(()=>{
     //     axios.get("https://jsonplaceholder.typicode.com/posts/1")
     //     .then((res)=>{console.log(res);})
@@ -25,37 +25,36 @@ function Login() {
     // },[])
 
     const formValidation = () => {
-        if(!isNaN(+TelNumber) && TelNumber.length){
+        if (!isNaN(+TelNumber) && TelNumber.length) {
             console.log("Number a");
             return true
         }
-        else{setErrorMsg(true); return false
+        else {
+            setErrorMsg(true); return false
         }
-
-        console.log(TelNumber);
-        console.log(Password);
-        console.log(Robot);
     }
 
 
 
-    let submitData = e=> {
+    let submitData = e => {
         e.preventDefault();
         const isValid = formValidation();
-        
-       let  body={Tell:TelNumber, pass:Password};
-       let isPassHave =Boolean(Password.length);
-       let isRobot=RandomNumberOne+RandomNumberTwo===+Robot;
-       if(isRobot && isValid && isPassHave){
-        setErrorMsg(false)
-        axios.post("https://jsonplaceholder.typicode.com/posts",body)
-        .then((res)=>{console.log(res);})
-        .catch((err)=>{console.log(err); setServerErr(true)}) 
-           console.log("ok");
-       }
-       else{setErrorMsg(true); console.log("bad");
-       }
-       
+
+        let body = { Tell: TelNumber, pass: Password };
+        let isPassHave = Boolean(Password.length);
+        let isRobot = RandomNumberOne + RandomNumberTwo === +Robot;
+        if (isRobot && isValid && isPassHave) {
+            setErrorMsg(false)
+            setErrorMsg(false)
+            axios.post("https://jsonplaceholder.typicode.com/posts", body)
+                .then((res) => { console.log(res); })
+                .catch((err) => { console.log(err); setServerErr(true) })
+            console.log("ok");
+        }
+        else {
+            setErrorMsg(true); console.log("bad");
+        }
+
     }
     return (
         <>
@@ -79,7 +78,7 @@ function Login() {
                                 <span>+998</span>
                             </div>
                             <div className={classes.input_data}>
-                                <input type="tel" value={TelNumber} placeholder="Telefon" onChange={(e)=>{setTelNumber(e.target.value)}} ></input>
+                                <input type="tel" value={TelNumber} placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }} ></input>
                             </div>
                         </div>
 
@@ -88,13 +87,13 @@ function Login() {
                                 <LockIcon className={classes.lock_icon} />
                             </div>
                             <div className={classes.input_data}>
-                                <input type="password" value={Password} placeholder="Parol" onChange={(e)=>{setPassword(e.target.value)}}></input>
+                                <input type="password" value={Password} placeholder="Parol" onChange={(e) => { setPassword(e.target.value) }}></input>
                             </div>
                         </div>
 
                         <div className={classes.input_container}>
                             <div className={classes.input_label}>
-                                <span>{RandomNumberOne+" + "+RandomNumberTwo}</span>
+                                <span>{RandomNumberOne + " + " + RandomNumberTwo}</span>
                             </div>
                             <div className={classes.input_data}>
                                 <input type="text" placeholder="Natija" onChange={(e) => { setRobot(e.target.value) }}></input>

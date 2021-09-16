@@ -153,6 +153,11 @@ body{
     border: none;
     background-color: #F9B115;
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
     
 }
 .sms_icon{
