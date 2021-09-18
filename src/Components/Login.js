@@ -40,13 +40,22 @@ function Login() {
         e.preventDefault();
         const isValid = formValidation();
 
+        const config ={
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+        }
+
+
         let body = { Tell: TelNumber, pass: Password };
         let isPassHave = Boolean(Password.length);
         let isRobot = RandomNumberOne + RandomNumberTwo === +Robot;
         if (isRobot && isValid && isPassHave) {
             setErrorMsg(false)
             setErrorMsg(false)
-            axios.post("https://jsonplaceholder.typicode.com/posts", body)
+            axios.post("http://localhost:5000/api/users", 
+            body,config)
                 .then((res) => { console.log(res); })
                 .catch((err) => { console.log(err); setServerErr(true) })
             console.log("ok");
@@ -54,6 +63,7 @@ function Login() {
         else {
             setErrorMsg(true); console.log("bad");
         }
+      
 
     }
     return (
