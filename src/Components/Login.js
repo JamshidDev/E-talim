@@ -48,13 +48,13 @@ function Login() {
         }
 
 
-        let body = { Tell: TelNumber, pass: Password };
+        let body = { tell: TelNumber, pass: Password };
         let isPassHave = Boolean(Password.length);
         let isRobot = RandomNumberOne + RandomNumberTwo === +Robot;
         if (isRobot && isValid && isPassHave) {
             setErrorMsg(false)
             setErrorMsg(false)
-            axios.post("http://localhost:5000/api/users", 
+            axios.post("http://localhost:5000/api/users/login", 
             body,config)
                 .then((res) => { console.log(res); })
                 .catch((err) => { console.log(err); setServerErr(true) })
