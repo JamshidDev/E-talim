@@ -5,37 +5,36 @@ import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import LockIcon from '@material-ui/icons/Lock';
 import { Link, useHistory } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {register} from "../actions/userAction";
 
 function Singup() {
     const [RandomNumberOne, setRandomNumberOne] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
     const [RandomNumberTwo, setRandomNumberTwo] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
-    const [TelNumber, setTelNumber] = useState("");
-    const [Password, setPassword] = useState("");
+    const [tell, setTell] = useState("");
+    const [name, setName] = useState("");
+    const [pass, setPass] = useState("");
     const [RePassword, setRePassword] = useState("");
     const [Robot, setRobot] = useState(0);
     const [errMsg,setErrMsg]=useState(false);
     const [serverErr,setServerErr]=useState(false);
     let history = useHistory();
 
+    const dispatch = useDispatch();
 
-
-    const formValidation = () => {
-        if (!isNaN(+TelNumber) && TelNumber.length) return true;
-        else {setErrMsg(true); return false}}
+    const userRegister = useSelector(state => state.userRegister);
+    const {loading, error, userInfo} = userRegister;
+    useEffect(()=>{
+        if(userInfo){
+            history.push("/profile");
+        }
+        console.log(userInfo);
+    },[history,userInfo])
 
 
     let submitData = e => {
         e.preventDefault();
-        const isValid = formValidation();
-        let body = { Tell: TelNumber, pass: Password };
-        let isRobot = RandomNumberOne + RandomNumberTwo === +Robot;
-        let isPassTrue =Password===RePassword && Password.length;
-        if (isRobot && isValid && isPassTrue) {console.log(body);
-            axios.post("https://jsonplaceholder.typicode.com/posts", body)
-                .then((res) => history.push("/login") )
-                .catch((err) =>{console.log(err); setServerErr(true)});
-        }
-        else {setErrMsg(true); console.log("Iltimos formani to'g'ri to'ldiring");}
+        dispatch(register(name, tell, pass))
     }
 
 
@@ -56,12 +55,22 @@ function Singup() {
                         </div>
                         {errMsg && <p className={singupstyle.repassword}>Iltimos malumotlaringizni to'g'riligini tekshiring... </p>}
                         {serverErr && <p className={singupstyle.repassword}>Bu telefon raqam allaqachon ro'yhatdan o'tgan</p>}
+
+                        <div className={singupstyle.input_container}>
+                            <div className={singupstyle.input_label}>
+                                <span>Ism</span>
+                            </div>
+                            <div className={singupstyle.input_data}>
+                                <input type="text"placeholder="Ismingiz" onChange={(e) => { setName(e.target.value) }}></input>
+                            </div>
+                        </div>
+
                         <div className={singupstyle.input_container}>
                             <div className={singupstyle.input_label}>
                                 <span>+998</span>
                             </div>
                             <div className={singupstyle.input_data}>
-                                <input type="_tel"placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }}></input>
+                                <input type="_tel"placeholder="Telefon" onChange={(e) => { setTell(e.target.value) }}></input>
                             </div>
                         </div>
                         <div className={singupstyle.input_container}>
@@ -69,7 +78,7 @@ function Singup() {
                                 <LockIcon className={singupstyle.lock_icon} />
                             </div>
                             <div className={singupstyle.input_data}>
-                                <input type="_password" placeholder="Parol" onChange={(e) => { setPassword(e.target.value) }}></input>
+                                <input type="_password" placeholder="Parol" onChange={(e) => { setPass(e.target.value) }}></input>
                             </div>
                         </div>
 

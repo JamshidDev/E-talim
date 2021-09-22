@@ -31,7 +31,7 @@ function SmsVerification(){
                 setSeconds(0);
             }
         }, 1000);
-      }, []);
+      }, [0]);
     let isVerify =()=>{
         console.log(smsCode.length===5);
         if(!isNaN(+smsCode) && smsCode.length===5) return true;

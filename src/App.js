@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import {
-  BrowserRouter as Router,
+  BrowserRouter as
   Switch,
   Route,
-  Link,
   BrowserRouter
 } from "react-router-dom";
 import Login from './Components/Login';
@@ -17,6 +16,7 @@ import Result from './Components/Result';
 import ResultTest from './Components/ResultTest';
 import QuizSetting from './Components/Pages/QuizSetting';
 import BottomNavbar from './Components/BottomNavbar';
+import Profile from './Components/Pages/Profile';
 
 function App() {
 
@@ -81,6 +81,9 @@ function App() {
         </Route>
         <Route path="/bottomNavbar" exact>
           <BottomNavbar />
+        </Route>
+        <Route path="/profile" exact>
+          <Profile/>
         </Route>
         </Switch>
 

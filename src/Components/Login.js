@@ -4,67 +4,37 @@ import classes from '../css/login.module.css';
 import Uzbek from "../imgs/uz.svg";
 import English from "../imgs/eng.svg";
 import LockIcon from '@material-ui/icons/Lock';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {login} from "../actions/userAction";
 
 
 
 function Login() {
-
-    const [TelNumber, setTelNumber] = useState("");
-    const [Password, setPassword] = useState("");
+    let history =useHistory();
+    const [tell, setTelNumber] = useState("");
+    const [pass, setPassword] = useState("");
     const [Robot, setRobot] = useState(0);
     const [errorMsg, setErrorMsg] = useState(false);
     const [serverErr, setServerErr] = useState(false);
     const [RandomNumberOne, setRandomNumberOne] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
     const [RandomNumberTwo, setRandomNumberTwo] = useState(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
 
-    // useEffect(()=>{
-    //     axios.get("https://jsonplaceholder.typicode.com/posts/1")
-    //     .then((res)=>{console.log(res);})
-    //     .catch((err)=>{console.log(err);})
-    // },[])
-
-    const formValidation = () => {
-        if (!isNaN(+TelNumber) && TelNumber.length) {
-            console.log("Number a");
-            return true
+    const dispatch = useDispatch();
+    const userLogin = useSelector((state) => state.userLogin);
+    const {error, loading, userInfo} = userLogin;
+    console.log(error);
+    
+    useEffect(()=>{
+        if(userInfo){
+            history.push("/profile");
         }
-        else {
-            setErrorMsg(true); return false
-        }
-    }
+    },[history, userInfo]);
 
-
-
-    let submitData = e => {
+    let submitData = async(e) => {
         e.preventDefault();
-        const isValid = formValidation();
-
-        const config ={
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
-        }
-
-
-        let body = { tell: TelNumber, pass: Password };
-        let isPassHave = Boolean(Password.length);
-        let isRobot = RandomNumberOne + RandomNumberTwo === +Robot;
-        if (isRobot && isValid && isPassHave) {
-            setErrorMsg(false)
-            setErrorMsg(false)
-            axios.post("http://localhost:5000/api/users/login", 
-            body,config)
-                .then((res) => { console.log(res); })
-                .catch((err) => { console.log(err); setServerErr(true) })
-            console.log("ok");
-        }
-        else {
-            setErrorMsg(true); console.log("bad");
-        }
-      
-
+       
+        dispatch(login(tell,pass));
     }
     return (
         <>
@@ -88,7 +58,7 @@ function Login() {
                                 <span>+998</span>
                             </div>
                             <div className={classes.input_data}>
-                                <input type="tel" value={TelNumber} placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }} ></input>
+                                <input type="tel" value={tell} placeholder="Telefon" onChange={(e) => { setTelNumber(e.target.value) }} ></input>
                             </div>
                         </div>
 
@@ -97,7 +67,7 @@ function Login() {
                                 <LockIcon className={classes.lock_icon} />
                             </div>
                             <div className={classes.input_data}>
-                                <input type="password" value={Password} placeholder="Parol" onChange={(e) => { setPassword(e.target.value) }}></input>
+                                <input type="password" value={pass} placeholder="Parol" onChange={(e) => { setPassword(e.target.value) }}></input>
                             </div>
                         </div>
 
