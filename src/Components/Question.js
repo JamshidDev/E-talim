@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import ErrorMessage from "./ErrorMessage";
+import "../css/question.css";
 
 const Question = ({
     currQues,
@@ -46,18 +47,19 @@ const Question = ({
   
     return (
       <div className="question">
-        <h1>Question {currQues + 1} :</h1>
+        <p className="question_number">Savon raqami:{currQues + 1}</p>
   
         <div className="singleQuestion">
-          <h2>{questions[currQues].question}</h2>
+          <p className="question_list">{questions[currQues].question}</p>
           <div className="options">
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {options &&
               options.map((i) => (
                 <button
-                  className={`singleOption  ${selected && handleSelect(i)}`}
+                  className={`${selected && handleSelect(i)} singleOption question_answer`}
                   key={i}
                   onClick={() => handleCheck(i)}
+                  disabled={selected}
                 >
                   {i}
                 </button>

@@ -23,7 +23,6 @@ export const login= (tell, pass)=>async(dispatch)=>{
             {tell,pass},
             config
         );
-
         dispatch({type:USER_LOGIN_SUCCESS, payload:data});
 
         localStorage.setItem("userInfo", JSON.stringify(data));

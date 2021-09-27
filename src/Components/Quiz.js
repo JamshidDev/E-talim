@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useHistory } from "react-router";
 import { TextField, MenuItem, Button, makeStyles } from '@material-ui/core';
 import categories from "./Data/Category";
 import  ErrorMessage from "./ErrorMessage";
 import quizStyle from "../css/Quiz.module.css";
 import styles from '../css/quizmodule.css';
+import {useDispatch, useSelector} from "react-redux";
+import {listTest} from "../actions/testAction";
 
 const useStyle = makeStyles({
 
@@ -15,25 +17,53 @@ const useStyle = makeStyles({
 })
 
 function Quiz({ name, setName, fetchQuestions }){
+
+const dispatch = useDispatch();
+const testList = useSelector((state) => state.testList)
+const {tests, loading, error } = testList;
+let quiz = tests? tests.map((item)=>item._id):"xatolik";
+console.log(quiz);
+console.log(loading);
+console.log(error);
+const handlerClick =()=>{
+  dispatch(listTest())
+}
+// useEffect(() => {
+ 
+  
+// }, [dispatch])
+
+
+
+
+
+
+
+
+
+
   const classes = useStyle()
 
  const [category, setCategory]=useState("");
  const [difficult, setDifficult]=useState("");
- const [error, setError]=useState(false);
+//  const [error, setError]=useState(false);
 
  const history = useHistory();
 
  const handleSubmit=()=>{
   if(!category || !difficult || !name){
-    setError(true)
+    // setError(true)
     return;
   }
   else{
-    setError(false)
+    // setError(false)
     console.log(category, difficult);
     fetchQuestions(category, difficult);
     history.push("/result");
   }
+
+
+
  }
 
 
@@ -48,6 +78,7 @@ function Quiz({ name, setName, fetchQuestions }){
               E-talim
             </span>
           </nav>
+          <button onClick={handlerClick}>Click me</button>
           <h1>Quiz settings</h1>
           <div className={quizStyle.grid_container}>
             <div className={quizStyle.grid_item1}>
@@ -118,7 +149,7 @@ function Quiz({ name, setName, fetchQuestions }){
           </div>
         <h1>Quiz settings</h1>
         <div className={quizStyle.quiz_setting}>
-          {error && <ErrorMessage> xato</ErrorMessage>}
+          {/* {error && <ErrorMessage> xato</ErrorMessage>} */}
        
            </div>
 

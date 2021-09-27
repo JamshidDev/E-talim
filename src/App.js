@@ -34,8 +34,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Switch>
 
+        <Switch>
         <Route path="/quiz" exact>
           <Quiz 
            name ={name}
@@ -58,9 +58,6 @@ function App() {
         <Route path="/singup" exact>
           <Singup />
         </Route>
-        <Route path="/" exact>
-          <QuizSetting />
-        </Route>
         <Route path="/login" exact>
           <Login />
         </Route>
@@ -73,13 +70,16 @@ function App() {
         <Route path="/repassword" exact>
           <Repassword />
         </Route>
-        <Route path="/smsverification" exact>
-          <SmsVerification />
+        <Route path="/repassword" exact>
+          <Repassword />
+        </Route>
+        <Route path="/quizsetting" exact>
+          <QuizSetting />
         </Route>
         <Route path="/newpassword" exact>
           <NewPassword />
         </Route>
-        <Route path="/bottomNavbar" exact>
+        <Route path="/bottomnavbar" exact>
           <BottomNavbar />
         </Route>
         <Route path="/profile" exact>
