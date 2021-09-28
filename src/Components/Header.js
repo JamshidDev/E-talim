@@ -4,7 +4,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
-import {deepPurple } from '@mui/material/colors';
+import { deepPurple } from '@mui/material/colors';
 import React from 'react';
 import SideDrawer from "./SideDrawer";
 import Breadcrumbs from '@mui/material/Breadcrumbs';
@@ -58,15 +58,15 @@ function Header() {
                     </Badge>
                 </IconButton>
                 <IconButton color="inherit">
-                <Link
-                underline="none"
+                    <Link
+                        underline="none"
                         color="text.primary"
                         href="/profile"
                         aria-current="page"
                     >
-                       <Avatar  href="/profile" sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>
+                        <Avatar href="/profile" sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>
                     </Link>
-                        
+
                 </IconButton>
             </Toolbar>
 
@@ -94,6 +94,7 @@ function Header() {
                     </Link>
                 </Breadcrumbs>
             </div>
+           
 
         </div>
     )
