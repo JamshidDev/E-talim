@@ -15,7 +15,7 @@ import Quiz from './Components/Quiz';
 import Result from './Components/Result';
 import ResultTest from './Components/ResultTest';
 import QuizSetting from './Components/Pages/QuizSetting';
-import BottomNavbar from './Components/BottomNavbar';
+import Table from './Components/Table';
 import Profile from './Components/Pages/Profile';
 
 function App() {
@@ -80,7 +80,7 @@ function App() {
           <NewPassword />
         </Route>
         <Route path="/bottomnavbar" exact>
-          <BottomNavbar />
+          <Table />
         </Route>
         <Route path="/profile" exact>
           <Profile/>

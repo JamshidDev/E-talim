@@ -16,6 +16,9 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
+import LogoutIcon from '@mui/icons-material/Logout';
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import UpdateIcon from '@mui/icons-material/Update';
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -86,20 +89,20 @@ export default function Profile() {
         <Grid item lg={6} md={6} sm={6} xs={12} >
           <List>
 
-            <ListItem sx={{ display: "flex" }}>
+            <ListItem sx={{ display: "flex", position:"relative" }}>
               <Typography
                 variant="button"
                 display="block"
                 gutterBottom
-                sx={{ margin:"0px 5px", width:90, }}
+                sx={{ padding:"0px 10px 0px 0px", width:90, }}
                 gutterBottom
               >
                 Name
               </Typography>
-              <Typography variant="subtitle1" display="block" sx={{ padding: "0px 30px" }} gutterBottom >
+              <Typography variant="subtitle1" display="block" gutterBottom >
                 Jamshid Raximov
               </Typography>
-              <Typography variant="overline" display="block" sx={{ padding: "0px 10px" }} gutterBottom>
+              <Typography variant="overline" display="block" sx={{ padding: "0px 10px", position: 'absolute', right:"0px" }} gutterBottom>
                 12/09/2021
               </Typography>
             </ListItem>
@@ -110,15 +113,15 @@ export default function Profile() {
                 variant="button"
                 display="block"
                 gutterBottom
-                sx={{ margin:"0px 5px", width:90, }}
+                sx={{ padding:"0px 10px 0px 0px", width:90, }}
                 gutterBottom
               >
-                TELL
+                TEL
               </Typography>
-              <Typography variant="subtitle1" display="block" sx={{ padding: "0px 30px" }} gutterBottom >
+              <Typography variant="subtitle1" display="block"  gutterBottom >
                 995016004
               </Typography>
-              <Typography variant="overline" display="block" sx={{ padding: "0px 10px" }} gutterBottom>
+              <Typography variant="overline" display="block" sx={{ padding: "0px 10px", position: 'absolute', right:"0px" }} gutterBottom>
                 12/09/2021
               </Typography>
             </ListItem>
@@ -128,15 +131,15 @@ export default function Profile() {
                 variant="button"
                 display="block"
                 gutterBottom
-                sx={{ margin:"0px 5px", width:90, }}
+                sx={{padding:"0px 10px 0px 0px", width:90, }}
                 gutterBottom
               >
                 EMAIL
               </Typography>
-              <Typography variant="subtitle1" display="block" sx={{ padding: "0px 30px" }} gutterBottom >
+              <Typography variant="subtitle1" display="block" gutterBottom >
                raximovj662@gmail.com
               </Typography>
-              <Typography variant="overline" display="block" sx={{ padding: "0px 10px" }} gutterBottom>
+              <Typography variant="overline" display="block" sx={{ padding: "0px 10px", position: 'absolute', right:"0px" }} gutterBottom>
                 12/09/2021
               </Typography>
             </ListItem>
@@ -146,15 +149,15 @@ export default function Profile() {
                 variant="button"
                 display="block"
                 gutterBottom
-                sx={{ margin:"0px 5px", width:90, }}
+                sx={{padding:"0px 10px 0px 0px", width:90, }}
                 gutterBottom
               >
-                ADDRESs
+                ADDRES
               </Typography>
-              <Typography variant="subtitle1" display="block" sx={{ padding: "0px 30px" }} gutterBottom >
+              <Typography variant="subtitle1" display="block" gutterBottom >
                 Xorazm, Uzbekistan
               </Typography>
-              <Typography variant="overline" display="block" sx={{ padding: "0px 10px" }} gutterBottom>
+              <Typography variant="overline" display="block" sx={{ padding: "0px 10px ", position: 'absolute', right:"0px" }} gutterBottom>
                 12/09/2021
               </Typography>
             </ListItem>
@@ -164,15 +167,15 @@ export default function Profile() {
                 variant="button"
                 display="block"
                 gutterBottom
-                sx={{ margin:"0px 5px", width:90, }}
+                sx={{ padding:"0px 10px 0px 0px", width:90, }}
                 gutterBottom
               >
                 Name
               </Typography>
-              <Typography variant="subtitle1" display="block" sx={{ padding: "0px 30px" }} gutterBottom >
+              <Typography variant="subtitle1" display="block"  gutterBottom >
                 Jamshid Raximov
               </Typography>
-              <Typography variant="overline" display="block" sx={{ padding: "0px 10px" }} gutterBottom>
+              <Typography variant="overline" display="block" sx={{ padding: "0px 10px", position: 'absolute', right:"0px" }} gutterBottom>
                 12/09/2021
               </Typography>
             </ListItem>
@@ -182,14 +185,54 @@ export default function Profile() {
           </List>
         </Grid>
         <Grid item lg={3} md={6} sm={6} xs={12}  >
-          <Item>xs</Item>
+        <Box sx={{width:"100%", display:"flex"}}>
+        <Typography variant="body"
+              style={{ width: "100%", padding:"16px 0px 15px 5px" }}
+              sx={{ textAlign: "left",  }}
+            >
+              Hisob raqamini o'chirish
+            </Typography>
+        </Box>
+          <Box sx={{width:"100%", display:"flex", justifyContent:"center"}}>
+          <Button size="small" variant="contained" color="secondary">
+            <LogoutIcon/>
+          </Button>
+          </Box>
+
+          <Box sx={{width:"100%", display:"flex"}}>
+        <Typography variant="body"
+              style={{ width: "100%", padding:"16px 0px 15px 5px" }}
+              sx={{ textAlign: "left",  }}
+            >
+              Kesh xotiradagi fayllarni o'chirish
+            </Typography>
+        </Box>
+          <Box sx={{width:"100%", display:"flex", justifyContent:"center"}}>
+          <Button size="small" variant="contained" color="secondary">
+            <AutoDeleteIcon/>
+          </Button>
+          </Box>
+
+          <Box sx={{width:"100%", display:"flex"}}>
+        <Typography variant="body"
+              style={{ width: "100%", padding:"16px 0px 15px 5px" }}
+              sx={{ textAlign: "left",  }}
+            >
+              Natijalar tarixini tozalash
+            </Typography>
+        </Box>
+          <Box sx={{width:"100%", display:"flex", justifyContent:"center"}}>
+          <Button size="small" variant="contained" color="primary">
+            <UpdateIcon/>
+          </Button>
+          </Box>
+
         </Grid>
       </Grid>
-      <h1>This is Profile component</h1>
-      <button onClick={() => {
+      <Button onClick={() => {
         localStorage.removeItem("userInfo");
         history.push("/")
-      }}>Log out</button>
+      }}>Log out</Button>
 
     </Container>
   )
